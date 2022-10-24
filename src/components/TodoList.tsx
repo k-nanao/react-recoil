@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { todoListState } from '../atom';
-import { todoListStatusState } from './selector';
+import { todoListState } from '../State/atom';
+import { INPUTVALUE } from '../types/DataType';
+import TodoListStatus from './TodoListStatus';
 
 const TodoList = () => {
+  const [title, setTitle] = useState<INPUTVALUE | ''>('');
   const todoList = useRecoilValue(todoListState);
-  const totalNum = useRecoilValue(todoListStatusState);
-  console.log(todoList);
-  console.log(totalNum);
 
   return (
     <div>
       <h1>初めてのRecoil</h1>
       {todoList.map((todo) => (
         <>
-          <ul>
-            <li>todoの登録数{totalNum}</li>
+          <ul key={todo.id}>
+            <TodoListStatus />
           </ul>
           <div key={todo.id}>{todo.title}</div>
         </>

@@ -1,7 +1,7 @@
 import { selector } from 'recoil';
-import { todoListState } from '../atom';
+import { todoListState } from './atom';
 
-export const todoListStatusState = selector({
+export const todoListStatusState = selector<number>({
   key: 'todoListStatusState',
   get: ({ get }) => {
     const todoList = get(todoListState);

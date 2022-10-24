@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
+import { DATA } from '../types/DataType';
 
-export const todoListState = atom({
+export const todoListState = atom<Array<DATA>>({
   key: 'todoListState',
   default: [
     {
