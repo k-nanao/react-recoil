@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { todoListState } from '../State/atom';
-import { INPUTVALUE } from '../types/DataType';
+import TodoItem from './TodoItem';
+import TodoItemCreator from './TodoItemCreator';
 import TodoListStatus from './TodoListStatus';
 
 const TodoList = () => {
-  const [title, setTitle] = useState<INPUTVALUE | ''>('');
   const todoList = useRecoilValue(todoListState);
 
   return (
     <div>
       <h1>初めてのRecoil</h1>
+      <TodoListStatus />
+      <TodoItemCreator />
       {todoList.map((todo) => (
-        <>
-          <ul key={todo.id}>
-            <TodoListStatus />
-          </ul>
-          <div key={todo.id}>{todo.title}</div>
-        </>
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>
   );

@@ -3,7 +3,3 @@ export type DATA = {
   title: string;
   isComplete: boolean;
 };
-
-export type INPUTVALUE = {
-  inputvalue?: string;
-};
