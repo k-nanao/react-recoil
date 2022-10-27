@@ -5,3 +5,7 @@
 .inner {
   margin: 1rem;
 }
+
+.deletefunc {
+  cursor: pointer;
+}

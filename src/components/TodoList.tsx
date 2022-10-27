@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { todoListState } from '../State/atom';
 import TodoItem from './TodoItem';
