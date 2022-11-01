@@ -3,3 +3,7 @@ export type DATA = {
   title: string;
   isComplete: boolean;
 };
+
+export type ITEMPROPS = {
+  todo: DATA;
+};

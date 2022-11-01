@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { todoListState } from '../State/atom';
-import { DATA } from '../types/DataType';
+import { ITEMPROPS } from '../types/DataType';
 
-const TodoItem: React.FC<DATA> = (todo) => {
+const TodoItem: React.FC<ITEMPROPS> = ({ todo }) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const deleteItem = (id: number) => {
@@ -11,14 +11,14 @@ const TodoItem: React.FC<DATA> = (todo) => {
     setTodoList(newTodos);
   };
 
-  const toggleCompletion = (id: number, isComlete: boolean) => {
+  const toggleCompletion = (id: number, isComplete: boolean) => {
     const toggleChecked = todoList.map((todo) => {
       if (todo.id === id) {
-        todo.isComplete = !isComlete;
+        return {...todo, isComplete: !isComplete}
       }
-      return todoList;
+      return todo;
     });
-    toggleChecked();
+    setTodoList(toggleChecked);
   };
 
   return (
